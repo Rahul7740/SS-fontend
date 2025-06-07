@@ -6,19 +6,19 @@ import "aos/dist/aos.css";
 const products = [
   {
     name: "Red Stone Chaukhat",
-    image: "/images/products/red-stone.jpg",
+    image: "/assets/images/b.jpg",
     description: "Premium red sandstone door frame for traditional entrances.",
     price: "₹3,200/meter",
   },
   {
     name: "Marble Temple Frame",
-    image: "/images/products/marble-frame.jpg",
+    image: "/assets/images/a.jpg",
     description: "White marble design for mandir or spiritual gateways.",
     price: "₹5,500/meter",
   },
   {
     name: "Sandstone Chaukhat",
-    image: "/images/products/sandstone.jpg",
+    image: "/assets/images/c.jpg",
     description: "Classic yellow sandstone chaukhat with carving options.",
     price: "₹2,800/meter",
   },

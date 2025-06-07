@@ -8,12 +8,14 @@ import Products from "./pages/Products";
 import Gallery from "./pages/Gallery";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./snippets/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-white text-gray-900 dark:bg-neutral-900 dark:text-white">
         <Navbar />
+        <ScrollToTop />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -16,11 +16,11 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/70  dark:bg-neutral-900/70 backdrop-blur-md shadow-sm">
       <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-red-600">
-          Shri Shyam
+          <img src="/assets/images/main_logo.png" alt="logo" className="w-14 h-14" />
         </Link>
 
         {/* Desktop Nav */}

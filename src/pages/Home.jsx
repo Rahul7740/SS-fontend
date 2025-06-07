@@ -5,8 +5,8 @@ import "aos/dist/aos.css";
 // Components (assume already created)
 import HeroSection from "../sections/HeroSection";
 import Features from "../sections/Features";
-import Products from "../pages/Products";
 import GalleryAbout from "../sections/GalleryAbout";
+import ProductShowcase from "../sections/ProductShowcase";
 
 const Home = () => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const Home = () => {
 
       {/* Products Preview */}
       <div data-aos="fade-up" data-aos-delay="300">
-        <Products />
+        <ProductShowcase />
       </div>
 
       {/* About + Gallery Combined Section */}

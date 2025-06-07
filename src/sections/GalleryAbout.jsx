@@ -20,17 +20,20 @@ const GalleryAbout = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-neutral-900 text-gray-800 dark:text-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="w-full bg-white dark:bg-neutral-900 text-gray-800 dark:text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1270px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        
         {/* About Section */}
         <div data-aos="fade-right">
-          <h2 className="text-4xl font-bold text-red-600 mb-6">About Shri Shyam Stone</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
+            About Shri Shyam Stone
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
             Shri Shyam Stone is a trusted name in high-quality stone chaukhats. We specialize in
             designing and delivering handcrafted red stone, sandstone, and marble door frames that
             enhance the entrance of any home or temple.
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-base">
+          <p className="text-base text-gray-600 dark:text-gray-300">
             With nationwide delivery, custom sizes, and expert craftsmanship — our products are known
             for durability, beauty, and traditional Indian aesthetics.
           </p>
@@ -43,14 +46,14 @@ const GalleryAbout = () => {
             spaceBetween={20}
             slidesPerView={1}
             pagination={{ clickable: true }}
-            className="rounded-2xl overflow-hidden shadow-xl"
+            className="rounded-2xl overflow-hidden shadow-md sm:shadow-xl"
           >
             {galleryImages.map((img, idx) => (
               <SwiperSlide key={idx}>
                 <img
                   src={img}
                   alt={`Gallery ${idx + 1}`}
-                  className="w-full h-72 object-cover"
+                  className="w-full h-60 sm:h-72 md:h-80 object-cover"
                 />
               </SwiperSlide>
             ))}
