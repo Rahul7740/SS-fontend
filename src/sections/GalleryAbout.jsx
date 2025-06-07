@@ -2,11 +2,17 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules"; // ✅ Add Autoplay
+import "swiper/css";
+import "swiper/css/pagination";
+
 const galleryImages = [
-  "/assets/images/a.jpg", // ✅ This image will be shown
+  "/assets/images/a.jpg",
   "/assets/images/b.jpg",
   "/assets/images/c.jpg",
   "/assets/images/d.jpg",
+  "/assets/images/a.jpg",
 ];
 
 const GalleryAbout = () => {
@@ -34,13 +40,31 @@ const GalleryAbout = () => {
           </p>
         </div>
 
-        {/* Static Image instead of Swiper */}
-        <div data-aos="fade-left" className="order-1 md:order-2">
-          <img
-            src={galleryImages[0]}
-            alt="About Shri Shyam Stone"
-            className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover rounded-2xl shadow-md sm:shadow-xl"
-          />
+        {/* Gallery Slider */}
+        <div data-aos="fade-right" className="order-1 md:order-2">
+          <Swiper
+            modules={[Pagination, Autoplay]} // ✅ Include Autoplay here
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }} // ✅ Configure autoplay
+            className="rounded-2xl overflow-hidden shadow-md sm:shadow-xl"
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 1 },
+              1024: { slidesPerView: 1 },
+            }}
+          >
+            {galleryImages.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`Gallery ${idx + 1}`}
+                  className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
