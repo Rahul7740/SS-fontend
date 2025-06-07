@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const productData = {
   frames: [
     {
+      id: 1,
       name: "Red Stone Chaukhat",
       price: "₹2,499",
       image: "/assets/images/a.jpg",
     },
     {
+      id: 2,
       name: "Sandstone Frame",
       price: "₹4,199",
       image: "/assets/images/b.jpg",
     },
     {
+      id: 3,
       name: "White Marble Frame",
       price: "₹6,999",
       image: "/assets/images/c.jpg",
@@ -22,11 +26,13 @@ const productData = {
   ],
   jali: [
     {
+      id: 4,
       name: "Square Pattern Jali",
       price: "₹1,999",
       image: "/assets/images/c.jpg",
     },
     {
+      id: 5,
       name: "Flower Design Jali",
       price: "₹2,499",
       image: "/assets/images/a.jpg",
@@ -36,6 +42,7 @@ const productData = {
 
 const Products = () => {
   const [activeTab, setActiveTab] = useState("frames");
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -102,7 +109,10 @@ const Products = () => {
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
               <p className="text-red-600 font-bold text-lg">{product.price}</p>
-              <button className="mt-4 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition">
+              <button
+                className="mt-4 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition"
+                onClick={() => navigate(`/product/${product.id}`)}
+              >
                 View Details
               </button>
             </div>

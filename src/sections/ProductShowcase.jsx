@@ -2,22 +2,26 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
     name: "Red Stone Chaukhat",
+    slug: "red-stone-chaukhat",
     image: "/assets/images/b.jpg",
     description: "Premium red sandstone door frame for traditional entrances.",
     price: "₹3,200/meter",
   },
   {
     name: "Marble Temple Frame",
+    slug: "marble-temple-frame",
     image: "/assets/images/a.jpg",
     description: "White marble design for mandir or spiritual gateways.",
     price: "₹5,500/meter",
   },
   {
     name: "Sandstone Chaukhat",
+    slug: "sandstone-chaukhat",
     image: "/assets/images/c.jpg",
     description: "Classic yellow sandstone chaukhat with carving options.",
     price: "₹2,800/meter",
@@ -25,6 +29,8 @@ const products = [
 ];
 
 const ProductShowcase = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
@@ -54,7 +60,13 @@ const ProductShowcase = () => {
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                   {product.description}
                 </p>
-                <div className="text-red-600 font-bold text-lg">{product.price}</div>
+                <div className="text-red-600 font-bold text-lg mb-4">{product.price}</div>
+                <button
+                  onClick={() => navigate(`/product/${product.slug}`)}
+                  className="px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition"
+                >
+                  View Details
+                </button>
               </div>
             </div>
           ))}

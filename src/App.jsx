@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./snippets/ScrollToTop";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
           </Routes>
         </main>
         <Footer />
