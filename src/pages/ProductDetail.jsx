@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiPhoneCall } from "react-icons/fi";
 import { FiMessageCircle } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules"; // ✅ Added Autoplay
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -34,74 +34,79 @@ const ProductDetail = () => {
 
   return (
     <section className="min-h-screen bg-white dark:bg-neutral-900 px-4 py-20 text-gray-800 dark:text-gray-100">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-    {/* Gallery */}
-    <div className="w-full">
-      <Swiper
-        modules={[Pagination]}
-        pagination={{ clickable: true }}
-        spaceBetween={10}
-        slidesPerView={1}
-        className="rounded-xl overflow-hidden shadow-md"
-      >
-        {product.images.map((img, i) => (
-          <SwiperSlide key={i}>
-            <img src={img} alt={`Slide ${i}`} className="w-full h-72 sm:h-80 md:h-96 object-cover" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-
-    {/* Info */}
-    <div className="w-full">
-      <h2 className="text-3xl font-bold text-red-600 mb-4">{product.name}</h2>
-      <p className="text-gray-600 dark:text-gray-300 mb-6">{product.description}</p>
-
-      {/* Size calculator */}
-      <div className="bg-gray-50 dark:bg-neutral-800 p-6 rounded-xl shadow mb-6">
-        <h3 className="font-semibold text-lg mb-2">Size Calculator</h3>
-        <div className="flex flex-col sm:flex-row gap-4 mb-3">
-          <input
-            type="number"
-            placeholder="Length (ft)"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
-            className="w-full p-2 rounded border dark:bg-neutral-700"
-          />
-          <input
-            type="number"
-            placeholder="Width (ft)"
-            value={width}
-            onChange={(e) => setWidth(e.target.value)}
-            className="w-full p-2 rounded border dark:bg-neutral-700"
-          />
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        
+        {/* Gallery */}
+        <div className="w-full">
+          <Swiper
+            modules={[Pagination, Autoplay]} // ✅ Include Autoplay
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }} // ✅ Autoplay settings
+            spaceBetween={10}
+            slidesPerView={1}
+            className="rounded-xl overflow-hidden shadow-md"
+          >
+            {product.images.map((img, i) => (
+              <SwiperSlide key={i}>
+                <img
+                  src={img}
+                  alt={`Slide ${i}`}
+                  className="w-full h-72 sm:h-80 md:h-96 object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <p className="text-red-600 font-bold">
-          Estimated Price: ₹{calculatePrice().toFixed(0)}
-        </p>
-      </div>
 
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 mt-6">
-        <button
-          onClick={() => navigate("/contact")}
-          className="w-full sm:w-auto px-5 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 flex items-center justify-center gap-2"
-        >
-          <FiPhoneCall size={18} /> Contact Us
-        </button>
-        <a
-          href="https://wa.me/919999999999"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full sm:w-auto px-5 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 flex items-center justify-center gap-2"
-        >
-          <FiMessageCircle size={18} /> WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* Info */}
+        <div className="w-full">
+          <h2 className="text-3xl font-bold text-red-600 mb-4">{product.name}</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">{product.description}</p>
 
+          {/* Size calculator */}
+          <div className="bg-gray-50 dark:bg-neutral-800 p-6 rounded-xl shadow mb-6">
+            <h3 className="font-semibold text-lg mb-2">Size Calculator</h3>
+            <div className="flex flex-col sm:flex-row gap-4 mb-3">
+              <input
+                type="number"
+                placeholder="Length (ft)"
+                value={length}
+                onChange={(e) => setLength(e.target.value)}
+                className="w-full p-2 rounded border dark:bg-neutral-700"
+              />
+              <input
+                type="number"
+                placeholder="Width (ft)"
+                value={width}
+                onChange={(e) => setWidth(e.target.value)}
+                className="w-full p-2 rounded border dark:bg-neutral-700"
+              />
+            </div>
+            <p className="text-red-600 font-bold">
+              Estimated Price: ₹{calculatePrice().toFixed(0)}
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <button
+              onClick={() => navigate("/contact")}
+              className="w-full sm:w-auto px-5 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 flex items-center justify-center gap-2"
+            >
+              <FiPhoneCall size={18} /> Contact Us
+            </button>
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-5 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 flex items-center justify-center gap-2"
+            >
+              <FiMessageCircle size={18} /> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

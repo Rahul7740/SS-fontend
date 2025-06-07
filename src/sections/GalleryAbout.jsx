@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules"; // ✅ Add Autoplay
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -43,21 +43,16 @@ const GalleryAbout = () => {
         {/* Gallery Slider */}
         <div data-aos="fade-left" className="order-1 md:order-2">
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]} // ✅ Include Autoplay here
             spaceBetween={20}
             slidesPerView={1}
             pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }} // ✅ Configure autoplay
             className="rounded-2xl overflow-hidden shadow-md sm:shadow-xl"
             breakpoints={{
-              640: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 1,
-              },
-              1024: {
-                slidesPerView: 1,
-              },
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 1 },
+              1024: { slidesPerView: 1 },
             }}
           >
             {galleryImages.map((img, idx) => (
