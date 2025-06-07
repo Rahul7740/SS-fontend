@@ -75,7 +75,7 @@ const Products = () => {
       <div
         data-aos="fade-up"
         data-aos-delay="100"
-        className="flex justify-center gap-4 mb-12 backdrop-blur-md bg-white/70 dark:bg-neutral-800/40 px-6 py-4 rounded-4xl shadow-md border border-gray-200 dark:border-neutral-700 w-fit mx-auto"
+        className="flex justify-center gap-4 mb-12 backdrop-blur-md bg-white/70 dark:bg-neutral-800/40 px-6 py-4 rounded-[30px] shadow-md border border-gray-200 dark:border-neutral-700 w-fit mx-auto"
       >
         {tabs.map((tab) => (
           <button

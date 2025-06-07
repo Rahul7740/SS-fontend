@@ -10,6 +10,7 @@ import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./snippets/ScrollToTop";
 import ProductDetail from "./pages/ProductDetail";
+import "./App.css"
 
 function App() {
   return (
